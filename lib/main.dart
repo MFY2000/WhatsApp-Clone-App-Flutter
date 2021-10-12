@@ -68,8 +68,6 @@ class MyApp extends StatelessWidget {
 List<Widget> Chat(){
 
   // List<Map<String,dynamic>> obj = [{"Muhammad Fahad",}]; 
-
-
   List<Widget> lst = [];
  
   for (var i = 0; i < 10; i++) {
@@ -82,7 +80,7 @@ List<Widget> Chat(){
             )
           ),
 
-          child: ListTile_()
+          child: ListTile_(name: 'abc', message: '123aa21', messagetype: 'Receive', dateTime: '5:23 pm', imageUrl: 'https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__480.jpg', unRead: '',)
         ),
           
       );
