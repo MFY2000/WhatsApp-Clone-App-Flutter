@@ -1,7 +1,10 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, avoid_print,prefer_const_literals_to_create_immutables, unnecessary_string_interpolations
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, avoid_print,prefer_const_literals_to_create_immutables, unnecessary_string_interpolations, unused_local_variable
 
  
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
  
 import 'package:intl/intl.dart';
@@ -43,7 +46,9 @@ class MyApp extends StatelessWidget {
 
             bottom: TabBar(
               tabs: [
-                Tab(icon: Icon(Icons.camera_alt),iconMargin: EdgeInsets.all(0),),
+                
+                SizedBox(width: 8 ,child: Icon(Icons.camera_alt)),
+                
                 Tab(child: Text("CHATS")),
                 Tab(child: Text("STATUS")),
                 Tab(child: Text("CALLS")),
@@ -62,6 +67,9 @@ class MyApp extends StatelessWidget {
   }
  
 
+Future<String> getJson() {
+  return rootBundle.loadString('Data.json');
+}
 
 
  
@@ -69,7 +77,7 @@ List<Widget> Chat(){
 
   // List<Map<String,dynamic>> obj = [{"Muhammad Fahad",}]; 
   List<Widget> lst = [];
- 
+  var myData = json.decode(getJson());
   for (var i = 0; i < 10; i++) {
    
       lst.add(

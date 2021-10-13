@@ -1,17 +1,17 @@
 {
-  "0":{
-    "name": "Muhammad Fahad",
+  "list": [
+    {"name": "Muhammad Fahad",
     "Image": "https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__480.jpg",
     "Type": "Send",
     "Send_Status":"Delivery",
     "Last Seen":"7:23 pm",
     "Unread": ""
   },
-  "1":{
-    "name": "Muhammad Bilal",
+  { "name": "Muhammad Bilal",
     "Image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
     "Type": "Receive",
     "Last Seen":"Yesterday",
     "Unread": "7"
   }
+]
 }
