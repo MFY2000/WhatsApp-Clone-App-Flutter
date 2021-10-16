@@ -78,6 +78,7 @@ List<Widget> Chat(){
   // List<Map<String,dynamic>> obj = [{"Muhammad Fahad",}]; 
   List<Widget> lst = [];
   var myData = json.decode(getJson());
+  
   for (var i = 0; i < 10; i++) {
    
       lst.add(
