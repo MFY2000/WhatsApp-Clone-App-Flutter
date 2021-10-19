@@ -1,18 +1,17 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, avoid_print,prefer_const_literals_to_create_immutables, unnecessary_string_interpolations, unused_local_variable
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, avoid_print,prefer_const_literals_to_create_immutables, unnecessary_string_interpolations, unused_local_variable, non_constant_identifier_names
 
- 
-import 'dart:convert';
-
+ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:whatsapp_clone/Tabs/CameraTab.dart';
 
- 
-import 'package:intl/intl.dart';
-import 'package:whatsapp_clone/Widget/Customize/ListTile_.dart';
+import 'Screen/Camera.dart';
 
 
  
-void main() {
+Future<void> main() async {
+
+  cameras_ = await availableCameras();
+
   runApp(const MyApp());
 }
  
@@ -47,8 +46,7 @@ class MyApp extends StatelessWidget {
             bottom: TabBar(
               tabs: [
                 
-                SizedBox(width: 8 ,child: Icon(Icons.camera_alt)),
-                
+                Tab(child: Icon(Icons.camera_alt)),
                 Tab(child: Text("CHATS")),
                 Tab(child: Text("STATUS")),
                 Tab(child: Text("CALLS")),
@@ -58,44 +56,63 @@ class MyApp extends StatelessWidget {
           ),  
         ),
  
-        body: SingleChildScrollView(
-          child: Column( children:Chat() )
+        body: TabBarView(  
+            children: [
+
+              CameraTab(),
+              Expanded(child: ListView.builder(
+                  itemCount: 5,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text("${index}"),
+                    );
+                    },
+                  )
+                ),
+              Text("3"),
+              Text("4"),
+            ],  
           )
-        ),
+        )
       )
     );
   }
  
 
-Future<String> getJson() {
-  return rootBundle.loadString('Data.json');
-}
-
 
  
-List<Widget> Chat(){
+Chat(){
 
   // List<Map<String,dynamic>> obj = [{"Muhammad Fahad",}]; 
   List<Widget> lst = [];
-  var myData = json.decode(getJson());
+  // var myData = json.decode(getJson());
   
-  for (var i = 0; i < 10; i++) {
+  ListView.builder(
+  itemCount: 5,
+  itemBuilder: (context, index) {
+    return ListTile(
+      title: Text("${index}"),
+    );
+    },
+  );
+  
+  // for (var i = 0; i < 10; i++) {
    
-      lst.add(
-        Container(
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(color: Color(0xFFEEEEEE))
-            )
-          ),
+  //     lst.add(
+  //       Container(
+  //         decoration: BoxDecoration(
+  //           border: Border(
+  //             bottom: BorderSide(color: Color(0xFFEEEEEE))
+  //           )
+  //         ),
 
-          child: ListTile_(name: 'abc', message: '123aa21', messagetype: 'Receive', dateTime: '5:23 pm', imageUrl: 'https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__480.jpg', unRead: '',)
-        ),
+  //         child: ListTile_(name: 'abc', message: '123aa21', messagetype: 'Receive', dateTime: '5:23 pm', imageUrl: 'https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__480.jpg', unRead: '',)
+  //       ),
           
-      );
+  //     );
  
-  }
-  return lst;
+  // }
+  // return lst;
  
 }
  
