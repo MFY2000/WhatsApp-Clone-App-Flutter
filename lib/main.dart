@@ -2,7 +2,10 @@
 
  import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/Custom%20UI/Dropdown_More.dart';
 import 'package:whatsapp_clone/Tabs/CameraTab.dart';
+import 'package:whatsapp_clone/Tabs/ChatTab.dart';
+import 'package:whatsapp_clone/Tabs/StatusTab.dart';
 
 import 'Screen/Camera.dart';
 
@@ -23,14 +26,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+
+      theme: ThemeData( 
+        primaryColor: Color(0xFF075E54),
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Color(0xFF128C7E))
+      ),
+      
       home: DefaultTabController(  
         length: 4, 
-        initialIndex: 1,
+        initialIndex: 2,
 
         child: Scaffold (
           appBar: AppBar(
             title: Text("WhatsApp", style: TextStyle(color: Colors.white, fontSize: 22.0, fontWeight: FontWeight.w600)),
             backgroundColor: Color(0xFF128C7E),
+            
             actions: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(right: 20.0),
@@ -38,7 +48,7 @@ class MyApp extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 16.0),
-                child: Icon(Icons.more_vert),
+                child: Dropdown_More(),
               ),
             ],
 
@@ -60,16 +70,19 @@ class MyApp extends StatelessWidget {
             children: [
 
               CameraTab(),
-              Expanded(child: ListView.builder(
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text("${index}"),
-                    );
-                    },
-                  )
-                ),
-              Text("3"),
+              ChatTab(),
+              
+              // Expanded(child: ListView.builder(
+              //     itemCount: 5,
+              //     itemBuilder: (context, index) {
+              //       return ListTile(
+              //         title: Text("${index}"),
+              //       );
+              //       },
+              //     )
+              //   ),
+
+              statusTab(),
               Text("4"),
             ],  
           )
