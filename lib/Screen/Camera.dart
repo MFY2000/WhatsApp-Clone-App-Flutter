@@ -35,6 +35,7 @@ class _CameraState extends State<Camera> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
+        fit:StackFit.expand,
         children: [
           FutureBuilder(
             future: cameraValue,
@@ -45,25 +46,36 @@ class _CameraState extends State<Camera> {
               return Center(child: CircularProgressIndicator(),);
           }),
 
-          Positioned(
-            
+          Positioned(     
             bottom: 0.0,
             child: Container(
-              color: Colors.black,
-              padding: EdgeInsets.only(top: 8, bottom: 8),
+              padding: EdgeInsets.only(top: 15),
               width: MediaQuery.of(context).size.width,
-              child: Column(children: [
+              
+              child: Column(
+                children: [
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
                   children: [
                   IconButton(onPressed: (){}, icon: Icon(Icons.flash_off, color: Colors.white, size: 28,)),
                   InkWell(onTap: (){}, child: Icon(Icons.panorama_fish_eye, color: Colors.white, size: 70)),
                   IconButton(onPressed: (){}, icon: Icon(Icons.flip_camera_ios, color: Colors.white, size:28)),
                 ]),
 
-                Text("Hold for video, tap for photo", style: TextStyle(color: Colors.white),)
+                SizedBox(height:15),
+                
+                Positioned(     
+                  bottom: 0.0,
+                  width: MediaQuery.of(context).size.width,
+                  child: Container(
+                    padding: EdgeInsets.only(top: 10,bottom: 10),
+                    color: Colors.black,
+                    alignment: Alignment.center,
+                    
+                    child: Text("Hold for video, tap for photo", 
+                      style: TextStyle(color: Colors.white, backgroundColor: Colors.black)))
+                  )
               ]),
             ),
           )
