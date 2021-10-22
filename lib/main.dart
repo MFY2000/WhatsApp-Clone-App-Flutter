@@ -29,7 +29,8 @@ class MyApp extends StatelessWidget {
 
       theme: ThemeData( 
         primaryColor: Color(0xFF075E54),
-        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Color(0xFF128C7E))
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Color(0xFF128C7E)),
+        materialTapTargetSize: MaterialTapTargetSize.padded,
       ),
       
       home: DefaultTabController(  
