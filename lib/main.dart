@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, avoid_print,prefer_const_literals_to_create_immutables, unnecessary_string_interpolations, unused_local_variable, non_constant_identifier_names
 
- import 'package:camera/camera.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/Custom%20UI/Dropdown_More.dart';
 import 'package:whatsapp_clone/Tabs/CameraTab.dart';

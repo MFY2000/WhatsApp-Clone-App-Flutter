@@ -24,6 +24,7 @@ class _statusTabState extends State<statusTab> {
             backgroundColor: Colors.grey[350], 
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap ,
             onPressed: () {},
+            elevation: 8,
             child: Icon(Icons.edit),
           ),
 

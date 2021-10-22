@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:fdottedline/fdottedline.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
 class statusCard extends StatefulWidget {
@@ -21,18 +21,15 @@ class _statusCardState extends State<statusCard> {
         Text("chat.message", style: TextStyle(color:  Color(0xFFD6D6D6))),
        
 
-     leading: FDottedLine(
-      color: Colors.lightBlue[600],
-      strokeWidth: 2.0,
-      dottedLength: 10.0,
-      space: 2.0,
-      child: const CircleAvatar(radius: 20,)
-      )
-     
-    //   CircleAvatar(
-    //    radius: 25,
-    //    backgroundImage: NetworkImage("chat.imageUrl"),
-    //  ),
+    leading: Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Color(0xFF000000), width: 1.0,style: BorderStyle.solid,),
+        borderRadius: BorderRadius.circular(25)
+      ),
+      child: CircleAvatar(
+         radius: 25,
+       ),
+    ),
     );
   }
 }
