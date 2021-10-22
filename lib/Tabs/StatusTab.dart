@@ -26,9 +26,9 @@ class _statusTabState extends State<statusTab> {
             onPressed: () {},
             child: Icon(Icons.camera_alt)
           ),
-
         ],
       )
+      body:Conterain()
       
     );
   }
