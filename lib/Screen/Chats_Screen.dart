@@ -3,7 +3,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/Custom%20UI/chatCards.dart';
+import 'package:whatsapp_clone/Custom%20UI/Chats/chatCards.dart';
 import 'package:whatsapp_clone/Model/ChatModel.dart';
 
 class Chats_Screen extends StatefulWidget {
