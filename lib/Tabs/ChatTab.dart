@@ -23,29 +23,29 @@ class _ChatTabState extends State<ChatTab> {
     imageUrl: "https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__480.jpg", 
     chatStatus: "send" //Send {send, delivery, seen}, Receive 
   ), ChatsModel(
-    name: "Muhammad Fahad", 
+    name: "Bilal", 
     time: "7:23 pm", 
     message: "Hi", 
     tags: ["Unseen","Pin","Mute"], 
     isGroup: false,
     imageUrl: "https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__480.jpg", 
-    chatStatus: "send" //Send {send, delivery, seen}, Receive 
+    chatStatus: "delivery" //Send {send, delivery, seen}, Receive 
   ), ChatsModel(
-    name: "Muhammad Fahad", 
+    name: "Ali", 
     time: "7:23 pm", 
     message: "Hi", 
     tags: ["Unseen","Pin","Mute"], 
     isGroup: false,
     imageUrl: "https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__480.jpg", 
-    chatStatus: "send" //Send {send, delivery, seen}, Receive 
+    chatStatus: "seen" //Send {send, delivery, seen}, Receive 
   ), ChatsModel(
-    name: "Muhammad Fahad", 
+    name: "Rafa", 
     time: "7:23 pm", 
     message: "Hi", 
     tags: ["Unseen","Pin","Mute"], 
     isGroup: false,
     imageUrl: "https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__480.jpg", 
-    chatStatus: "send" //Send {send, delivery, seen}, Receive 
+    chatStatus: "Receive" //Send {send, delivery, seen}, Receive 
   ) 
   
    ]; 
@@ -59,7 +59,7 @@ class _ChatTabState extends State<ChatTab> {
         child: Icon(Icons.chat),
       ),
       body: Container(
-        child: Chats_Screen(chats: chats),
+        child: chatsScreen(chats: chats),
       ),
     );
   }

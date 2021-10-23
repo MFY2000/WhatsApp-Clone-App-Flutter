@@ -3,11 +3,12 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/Custom%20UI/Dropdown_More.dart';
+import 'package:whatsapp_clone/Tabs/CallTab.dart';
 import 'package:whatsapp_clone/Tabs/CameraTab.dart';
 import 'package:whatsapp_clone/Tabs/ChatTab.dart';
 import 'package:whatsapp_clone/Tabs/StatusTab.dart';
 
-import 'Screen/Camera.dart';
+import 'Screen/Camera_Screen.dart';
 
 
  
@@ -69,22 +70,10 @@ class MyApp extends StatelessWidget {
  
         body: TabBarView(  
             children: [
-
-              CameraTab(),
+              cameraTab(),
               ChatTab(),
-              
-              // Expanded(child: ListView.builder(
-              //     itemCount: 5,
-              //     itemBuilder: (context, index) {
-              //       return ListTile(
-              //         title: Text("${index}"),
-              //       );
-              //       },
-              //     )
-              //   ),
-
               statusTab(),
-              Text("4"),
+              callTab()
             ],  
           )
         )

@@ -1,7 +1,6 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
 import 'package:whatsapp_clone/Custom%20UI/Status/OwnStatus.dart';
 import 'package:whatsapp_clone/Custom%20UI/Status/StatusCard.dart';
 import 'package:whatsapp_clone/Model/StatusModel.dart';
@@ -9,13 +8,17 @@ import 'package:whatsapp_clone/Model/StatusModel.dart';
 List<StatusModel> statusModel = [
   
   StatusModel(name: "Bilal", time: "Today, 17:49 pm", status: [
-  {"https://static.remove.bg/remove-bg-web/99ab439c6e8e26adfd8c59cee4eb26f0376a9584/assets/start-1abfb4fe2980eabfbbaaa4365a0692539f7cd2725f324f904565a9a744f8e214.jpg": true},
-  {"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW3yqQzJmYiZjThaK053YaizsKSIlhC47kBgqRk1wE9-HrAT9aAB1VfY4biaBE29yPE-4&usqp=CAU": false}
+  {"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg": true},
+  {"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg": true},
+  {"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg": false},
+  {"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg": true},
+  {"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg": true},
+  {"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg": false}
   ]),
   
   StatusModel(name: "Ali", time: "Yesterday, 7:49 pm", status: [
-  {"https://static.remove.bg/remove-bg-web/99ab439c6e8e26adfd8c59cee4eb26f0376a9584/assets/start-1abfb4fe2980eabfbbaaa4365a0692539f7cd2725f324f904565a9a744f8e214.jpg": false},
-  {"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW3yqQzJmYiZjThaK053YaizsKSIlhC47kBgqRk1wE9-HrAT9aAB1VfY4biaBE29yPE-4&usqp=CAU":false}
+  {"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg": false},
+  {"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg":false}
   ])
 
   ];
@@ -26,35 +29,26 @@ class status_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        ownStatus(),
-        Heading("Recent updates", context),
-
-        for (var i = 0; i < 4; i++) 
-          statusCard(),
-
-        SizedBox(height: 10,),
-
-        Heading("Veiwed updates", context),
-        for (var i = 0; i < 5; i++) 
-          statusCard(),
-      
-      ],
+      children: statusPanel(context)
     );
   }
 
-  List<Widget> statusPanel(){
-    List<Widget> status;
-    List<Widget> recent;
-    List<Widget> veiwed;
+  List<Widget> statusPanel(BuildContext context){
+    List<Widget> status = [ownStatus()]; 
+    List<Widget> recent = [Heading("Recent updates", context)];
+    List<Widget> veiwed = [Heading("Veiwed updates", context),];
 
-    for (var i = 0; i < count; i++) 
-      if()
-        recent.add(statusCard());
-      else
-        veiwed.add(statusCard());
+    for (var i = 0; i < statusModel.length; i++){
+      if(statusModel[i].isSeen()) {
+        recent.add(statusCard(person:statusModel[i]));
+      } else{
+        veiwed.add(statusCard(person:statusModel[i]));
+      }
+    }
 
-    status.addAll(recent);  
+    status.addAll(recent.length > 1 ? recent: []);
+    status.add(SizedBox(height: 10,));
+    status.addAll(veiwed.length > 1 ? veiwed: []);
     
 
     return status;

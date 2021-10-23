@@ -2,10 +2,10 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/Screen/Camera.dart';
+import 'package:whatsapp_clone/Screen/Camera_Screen.dart';
 
-class CameraTab extends StatelessWidget {
-  const CameraTab({ Key? key }) : super(key: key);
+class cameraTab extends StatelessWidget {
+  const cameraTab({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

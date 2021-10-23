@@ -9,11 +9,11 @@ class StatusModel {
 
   bool isSeen(){
     bool match = false;
-
     for (var item in status) {
-      if(item.values == true)
+     if(item.values.single) {
         match = true;
         break;
+      }
     }
 
     return match;

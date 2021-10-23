@@ -6,19 +6,19 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/Custom%20UI/Chats/chatCards.dart';
 import 'package:whatsapp_clone/Model/ChatModel.dart';
 
-class Chats_Screen extends StatefulWidget {
+class chatsScreen extends StatefulWidget {
   final List<ChatsModel> chats;
 
-  const Chats_Screen({ Key? key,required this.chats }) : super(key: key);
+  const chatsScreen({ Key? key,required this.chats }) : super(key: key);
 
   @override
-  _Chats_ScreenState createState() => _Chats_ScreenState(chats);
+  _chatsScreenState createState() => _chatsScreenState(chats);
 }
 
-class _Chats_ScreenState extends State<Chats_Screen> {
+class _chatsScreenState extends State<chatsScreen> {
   late List<ChatsModel> chats;
 
-  _Chats_ScreenState(this.chats);
+  _chatsScreenState(this.chats);
 
   @override
   Widget build(BuildContext context) {
